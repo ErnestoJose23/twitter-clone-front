@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
-import Home from "./components/pages/home";
+import Home from "./components/pages/Home";
 import UserContext from "./context/UserContext";
 
-import Login from "./components/auth/login";
-import Register from "./components/auth/register";
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
 
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
 function App() {
