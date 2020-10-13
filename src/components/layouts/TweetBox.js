@@ -6,14 +6,15 @@ import WallpaperIcon from '@material-ui/icons/Wallpaper';
 function TweetBox() {
     return (
         <div className="tweetbox">
+               <Avatar />
             <form>
                 <div className="tweetbox_input">
-                    <Avatar />
+                 
                     <input placeholder="¿Qué está pasando?" type="text" />
                    
                 </div>
                 <div> 
-                    <label for="file-upload" className="label-file">
+                    <label htmlFor="file-upload" className="label-file">
               
                     <WallpaperIcon />
                     </label>

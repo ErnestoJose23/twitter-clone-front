@@ -28,12 +28,21 @@
 }
 
 .tweetbox {
+  display: flex;
   padding-bottom: 10px;
   border-bottom: 8px solid var(--twitter-background);
   padding-right: 10px;
 }
 
 .tweetbox > form {
+  padding-left: 15px;
   display: flex;
   flex-direction: column;
+}
+
+.tweetbox_input > input {
+  flex: 1;
+  margin-left: 0px;
+  font-size: 20px;
+  border: none;
 }
