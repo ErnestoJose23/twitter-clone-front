@@ -1,0 +1,26 @@
+.sidebar_option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sidebar_option_title {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", sans-serif;
+  line-height: 1.3125;
+  margin-left: 20px;
+  margin-right: 15px;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.sidebar_option > .MuiSvgIcon-root {
+  padding: 10px;
+}
+
+.sidebar_option:hover {
+  background-color: #e8f5fe;
+  border-radius: 30px;
+  color: var(--twitter-color);
+  transition: color 100ms ease-out;
+}
