@@ -11,5 +11,29 @@
   background-color: white;
   z-index: 100;
   border: 1px solid var(--twitter-background);
-  padding: 15px 20px;
+  padding: 0px 20px;
+}
+
+.feed_header > h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.feed::-webkit-scrollbar {
+  display: none;
+}
+
+.inputFile {
+  display: none;
+}
+
+.tweetbox {
+  padding-bottom: 10px;
+  border-bottom: 8px solid var(--twitter-background);
+  padding-right: 10px;
+}
+
+.tweetbox > form {
+  display: flex;
+  flex-direction: column;
 }
