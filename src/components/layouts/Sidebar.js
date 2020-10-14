@@ -10,9 +10,21 @@ import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import FeaturedPlayListOutlinedIcon from '@material-ui/icons/FeaturedPlayListOutlined';
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import BlurCircularOutlinedIcon from '@material-ui/icons/BlurCircularOutlined';
-import {Button} from "@material-ui/core"
+import {Avatar, Button, IconButton} from "@material-ui/core"
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 
 function Sidebar() {
+    const [anchorEl, setAnchorEl] = React.useState(null);
+
+    const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+  
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
     return (
         <div className="sidebar">
             <TwitterIcon style={{ fontSize: 35}} className="sidebar_logo"/>
@@ -28,6 +40,27 @@ function Sidebar() {
                
             </div>
             <Button variant="outlined" className="sidebar_button" fullWidth>Twittear</Button>
+
+            <div className="sidebar_user" onClick={handleClick}>
+                <Avatar />
+                <div className="sidebar_username"><strong>Ernesto Custodio</strong> <span> @ErnestoCustodio</span></div> <ExpandMoreIcon />
+            </div>
+            <Menu
+                id="simple-menu"
+                anchorEl={anchorEl}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+                PaperProps={{
+                    style: {
+                      transform: ' translateY(-90%)',
+                    }
+                  }}
+            >
+                <MenuItem onClick={handleClose}>Agregar una cuenta existente</MenuItem>
+                <MenuItem onClick={handleClose}>Cerrar sesión</MenuItem>
+
+            </Menu>
         </div>
     )
 }

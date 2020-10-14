@@ -58,3 +58,20 @@
   padding-bottom: 15px;
   color: var(--twitter-color);
 }
+
+.sidebar_user:hover {
+  cursor: pointer;
+  background-color: var(--twitter-background);
+}
+.sidebar_user {
+  margin-top: 100px;
+  border-radius: 50px;
+  display: flex;
+  height: 60px;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.sidebar_username {
+  margin-left: 10px;
+}
