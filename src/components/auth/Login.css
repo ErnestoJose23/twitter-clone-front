@@ -1,0 +1,46 @@
+.login {
+  height: 100vh;
+  display: flex;
+}
+
+.login_left {
+  background-color: rgb(113, 201, 248);
+  width: 50%;
+  height: 100vh;
+  background-image: url("https://www.lter-europe.net/document-archive/image-gallery/albums/logos/TwitterLogo_55acee.png/image");
+  background-position: 10%;
+  background-size: 200%;
+}
+
+.login_leftText {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+.login_leftTextall {
+  margin: 0;
+  position: absolute;
+  width: 500px;
+  top: 45%;
+  left: 50%;
+  height: 200px;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-120%, -50%);
+}
+
+.login_right {
+  position: relative;
+}
+
+.form_right {
+  margin: 0;
+  position: absolute;
+  width: 500px;
+  top: 40%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(40%, -50%);
+}
