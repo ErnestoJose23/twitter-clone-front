@@ -5,6 +5,7 @@ import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import RepeatIcon from '@material-ui/icons/Repeat';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import PublishIcon from '@material-ui/icons/Publish';
+import "./Feed.css"
 
 function Post({displayName, username, verified, timestamp, text, image, avatar}) {
     return (
@@ -15,14 +16,16 @@ function Post({displayName, username, verified, timestamp, text, image, avatar})
             <div className="post_body">
                 <div className="post_header">
                     <div className="post_headerText">
-                        <h3>Hola <span>{ verified && <VerifiedUserIcon className="post_badge"/>} @Hola
+                        <h3>{displayName} <span className="post_headerSpecial">{ verified && <VerifiedUserIcon className="post_badge"/>} @{username} - {timestamp}
                         </span></h3>
                     </div>
                     <div className="post_headerDescription">
-                        <p>Esto es una prueba de tweiiit</p>
+                        <p>{text}</p>
                     </div>
                 </div>
-                <img src={image} alt="" />
+                {image &&
+                    <img src={image} alt="" />
+                }
                 <div className="post_footer">
                     <IconButton>
                         <ChatBubbleOutlineIcon fontSize="small"/>

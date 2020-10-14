@@ -11,7 +11,8 @@ function Feed() {
             </div>
             <TweetBox />
 
-            <Post />
+            <Post username="Hola" displayName="Hola" text="Esto es un tweet" timestamp="14 min"/>
+          
         </div>
     )
 }

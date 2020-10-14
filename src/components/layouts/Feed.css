@@ -81,3 +81,59 @@
 .tweetbox_options {
   margin-top: auto;
 }
+
+/* Post Style */
+
+.post {
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--twitter-background);
+  padding-bottom: 10px;
+}
+
+.post_body > img {
+  border-radius: 20px;
+}
+
+.post_footer {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.post_badge {
+  font-size: 14px !important;
+  color: var(--twitter-color);
+}
+
+.post_headerSpecial {
+  font-weight: 600;
+  font-size: 15px;
+  color: gray;
+}
+
+.post_headerDescription {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.post_headerText > h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+  margin-top: 0px;
+}
+
+.post_header {
+  margin-left: 10px;
+}
+
+.post_body {
+  flex: 1;
+  padding: 10px;
+}
+
+.post_avatar {
+  margin-top: 5px;
+  margin-left: 10px;
+}
