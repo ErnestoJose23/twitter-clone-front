@@ -32,6 +32,7 @@
   padding-bottom: 10px;
   border-bottom: 8px solid var(--twitter-background);
   padding-right: 10px;
+  margin-top: 10px;
 }
 
 .tweetbox > form {
@@ -40,9 +41,43 @@
   flex-direction: column;
 }
 
+.tweetbox_form {
+  width: 100%;
+}
+
 .tweetbox_input > input {
   flex: 1;
   margin-left: 0px;
   font-size: 20px;
   border: none;
+  outline-width: 0;
+}
+
+.tweetbox_button {
+  background-color: var(--twitter-color) !important;
+  color: white !important;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", sans-serif;
+  border: none !important;
+  font-size: 15px !important;
+  font-weight: bold !important;
+  text-transform: inherit !important;
+  border-radius: 30px !important;
+  width: 90px;
+  height: 40px !important;
+  margin-top: 20px !important;
+  margin-left: auto !important;
+}
+
+.tweetbox_bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tweetbox_avatar {
+  margin-left: 10px;
+}
+
+.tweetbox_options {
+  margin-top: auto;
 }
