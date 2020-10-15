@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState, useContext, useEffect } from "react";
 import "./Sidebar.css"
+import { useHistory } from "react-router-dom";
 import SidebarOption from "./SidebarOption"
 import TwitterIcon from '@material-ui/icons/Twitter';
 import HomeIcon from '@material-ui/icons/Home';
@@ -14,9 +15,12 @@ import {Avatar, Button, IconButton} from "@material-ui/core"
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import UserContext from "../../context/UserContext";
 
 function Sidebar() {
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const { userData, setUserData } = useContext(UserContext);
+    let history = useHistory();
 
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
@@ -24,6 +28,14 @@ function Sidebar() {
   
     const handleClose = () => {
       setAnchorEl(null);
+    };
+    const LogOut = () => {
+      setUserData({
+        token: undefined,
+        user: undefined,
+      });
+      localStorage.setItem("auth-token", "");
+      history.push("/login");
     };
     return (
         <div className="sidebar">
@@ -42,8 +54,14 @@ function Sidebar() {
             <Button variant="outlined" className="sidebar_button" fullWidth>Twittear</Button>
 
             <div className="sidebar_user" onClick={handleClick}>
-                <Avatar />
-                <div className="sidebar_username"><strong>Ernesto Custodio</strong> <span> @ErnestoCustodio</span></div> <ExpandMoreIcon />
+            <Avatar
+            aria-controls="simple-menu"
+            aria-haspopup="true"
+          
+            className="header_avatar"
+            src={userData.avatar}
+          ></Avatar>
+                <div className="sidebar_username"><strong>{userData.displayName}</strong> <span> @{userData.username}</span></div> <ExpandMoreIcon />
             </div>
             <Menu
                 id="simple-menu"
@@ -58,7 +76,7 @@ function Sidebar() {
                   }}
             >
                 <MenuItem onClick={handleClose}>Agregar una cuenta existente</MenuItem>
-                <MenuItem onClick={handleClose}>Cerrar sesión</MenuItem>
+                <MenuItem onClick={LogOut}>Cerrar sesión</MenuItem>
 
             </Menu>
         </div>

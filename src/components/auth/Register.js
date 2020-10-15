@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import "./login.css";
+import "./Login.css";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Axios from "axios";
@@ -50,8 +50,8 @@ function Register() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [passwordCheck, setPasswordCheck] = useState();
-  const [name, setName] = useState();
-  const [surname, setSurname] = useState();
+  const [username, setUsername] = useState();
+  const [displayName, setDisplayname] = useState();
   const [error, setError] = useState();
 
   const handleOpen = () => {
@@ -68,8 +68,7 @@ function Register() {
   const submitReg = async (e) => {
     e.preventDefault();
     try {
-      const displayName = name + " " + surname;
-      const newUser = { email, password, passwordCheck, displayName };
+      const newUser = { email, password, passwordCheck, displayName, username };
       const registerRes = await Axios.post(
         "http://localhost:5000/users/register",
         newUser
@@ -96,15 +95,15 @@ function Register() {
         <div className="register_name">
           <input
             className="register_input name_reg"
-            placeholder="Nombre"
+            placeholder="UserName"
             id="register-name"
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
           ></input>
           <input
             className="register_input name_reg"
-            placeholder="Apellido"
+            placeholder="DisplayName"
             id="register-surname"
-            onChange={(e) => setSurname(e.target.value)}
+            onChange={(e) => setDisplayname(e.target.value)}
           ></input>
         </div>
         <input
@@ -128,15 +127,9 @@ function Register() {
           type="password"
           onChange={(e) => setPasswordCheck(e.target.value)}
         ></input>
-        <p className="register_politics">
-          Al hacer clic en "Registrarte", aceptas nuestras Condiciones. Obtén
-          más información sobre cómo recopilamos, usamos y compartimos tus datos
-          en la Política de datos, así como el uso que hacemos de las cookies y
-          tecnologías similares en la Política de cookies. Es posible que te
-          enviemos notificaciones por SMS, que puedes desactivar cuando quieras.
-        </p>
+       
         <div className="button_class">
-          <button className=" button_modal" type="submit">
+          <button className=" button_modal" type="submit" className="register_button">
             Registrate
           </button>
         </div>
@@ -146,7 +139,7 @@ function Register() {
   return (
     <div>
       <button className="register_button" type="button" onClick={handleOpen}>
-        Crear cuenta nueva
+        Sign up
       </button>
       <Modal
         open={open}

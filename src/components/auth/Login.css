@@ -44,3 +44,42 @@
   -ms-transform: translate(-50%, -50%);
   transform: translate(40%, -50%);
 }
+
+.register_button {
+  background-color: rgb(29, 161, 242);
+  margin-bottom: 15px;
+  min-height: 39px;
+  outline-style: none;
+  cursor: pointer;
+  padding-left: 1em;
+  padding-right: 1em;
+  border-color: rgba(0, 0, 0, 0);
+  border-radius: 9999px;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  width: 400px;
+}
+.register_button:hover {
+  background-color: #1989ce;
+}
+
+.login_button {
+  background-color: white;
+  margin-bottom: 15px;
+  min-height: 39px;
+  outline-style: none;
+  cursor: pointer;
+  padding-left: 1em;
+  padding-right: 1em;
+  border-color: rgb(29, 161, 242);
+  border-radius: 9999px;
+  color: rgb(29, 161, 242);
+  font-size: 15px;
+  font-weight: 700;
+  width: 400px;
+}
+
+.button_class {
+  margin-top: 25px;
+}
