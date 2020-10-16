@@ -47,7 +47,7 @@ function TweetBox() {
         var dd = String(objToday.getDate()).padStart(2, "0");
         var mm = String(objToday.getMonth() + 1).padStart(2, "0"); //January is 0!
         var yyyy = objToday.getFullYear();
-        var timestamp =
+        var timestamp1=
           curHour +
           ":" +
           curMinute +
@@ -61,6 +61,8 @@ function TweetBox() {
           mm +
           "/" +
           yyyy;
+
+          var timestamp = Date.now();
     
         console.log(timestamp);
         const FeedData = {
