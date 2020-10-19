@@ -98,7 +98,7 @@
   display: flex;
   width: 90%;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 0px;
 }
 
 .post_badge {
@@ -113,7 +113,7 @@
 }
 
 .post_headerDescription {
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   font-size: 16px;
 }
 
@@ -136,4 +136,8 @@
 .post_avatar {
   margin-top: 5px;
   margin-left: 10px;
+}
+
+.post_headerDescription > p {
+  margin: 0;
 }
