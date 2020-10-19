@@ -10,7 +10,6 @@ function Feed() {
                 <h2>Feed</h2>
             </div>
             <TweetBox />
-
             <Post username="Hola" displayName="Hola" text="Esto es un tweet" timestamp="14 min"/>
           
         </div>

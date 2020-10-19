@@ -62,15 +62,13 @@ function TweetBox() {
           "/" +
           yyyy;
 
-          var timestamp = Date.now();
+        var timestamp = Date.now();
     
         console.log(timestamp);
         const FeedData = {
-          displayName,
+          user_id,
           imagename,
           timestamp,
-          user_id,
-          file,
           title,
         };
     
@@ -79,9 +77,9 @@ function TweetBox() {
             "content-type": "multipart/form-data",
           },
         };
-        const FeedRes = Axios.post("http://localhost:5000/feed/upload", FeedData);
+        const FeedRes = Axios.post("http://localhost:5000/posts/upload", FeedData);
         const FeedResImg = Axios.post(
-          "http://localhost:5000/feed/uploadImg",
+          "http://localhost:5000/posts/uploadImg",
           formData,
           {
             headers: {
@@ -93,7 +91,6 @@ function TweetBox() {
         setTitle("");
         setFile("");
         imagename = "";
-        history.push("/");
       };
 
     return (
@@ -101,16 +98,14 @@ function TweetBox() {
             <Avatar className="tweetbox_avatar"/>
             <form className="tweetbox_form">
                 <div className="tweetbox_input">
-                 
-                    
                     <input
-            type="text"
-            className="messageSender_input"
-            placeholder={`¿Qué está pasando?`}
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            name="title"
-          />
+                      type="text"
+                      className="messageSender_input"
+                      placeholder={`¿Qué está pasando?`}
+                      value={title}
+                      onChange={(e) => setTitle(e.target.value)}
+                      name="title"
+                    />
                 </div>
                 <div className="tweetbox_bottom"> 
                     <div className="tweetbox_options">
@@ -120,11 +115,11 @@ function TweetBox() {
                         </IconButton>
                         </label>
                         <input
-                            id="file-upload"
-                            type="file"
-                            className="inputFile"
-                            onChange={(e) => setFile(e.target.files[0])}
-                            />
+                          id="file-upload"
+                          type="file"
+                          className="inputFile"
+                          onChange={(e) => setFile(e.target.files[0])}
+                        />
                         <IconButton>
                             <GifIcon />
                         </IconButton>
@@ -138,10 +133,8 @@ function TweetBox() {
                             <EventIcon />
                         </IconButton>
                     </div>
-                    <Button className="tweetbox_button"  onClick={handleSubmit}
-          type="submit"> Twittear</Button>
+                    <Button className="tweetbox_button"  onClick={handleSubmit} type="submit"> Twittear</Button>
                 </div>
-               
             </form>
         </div>
     )
