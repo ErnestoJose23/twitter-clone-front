@@ -27,49 +27,16 @@ function TweetBox() {
         }
         const displayName = userData.user;
         const user_id = userData.user_id;
-    
-        var objToday = new Date(),
-          curHour =
-            objToday.getHours() > 12
-              ? objToday.getHours() - 12
-              : objToday.getHours() < 10
-              ? "0" + objToday.getHours()
-              : objToday.getHours(),
-          curMinute =
-            objToday.getMinutes() < 10
-              ? "0" + objToday.getMinutes()
-              : objToday.getMinutes(),
-          curSeconds =
-            objToday.getSeconds() < 10
-              ? "0" + objToday.getSeconds()
-              : objToday.getSeconds(),
-          curMeridiem = objToday.getHours() > 12 ? "PM" : "AM";
-        var dd = String(objToday.getDate()).padStart(2, "0");
-        var mm = String(objToday.getMonth() + 1).padStart(2, "0"); //January is 0!
-        var yyyy = objToday.getFullYear();
-        var timestamp1=
-          curHour +
-          ":" +
-          curMinute +
-          ":" +
-          curSeconds +
-          " " +
-          curMeridiem +
-          " " +
-          dd +
-          "/" +
-          mm +
-          "/" +
-          yyyy;
 
         var timestamp = Date.now();
     
         console.log(timestamp);
+        let tweet = title;
         const FeedData = {
           user_id,
           imagename,
           timestamp,
-          title,
+          tweet,
         };
     
         const config = {
@@ -78,18 +45,21 @@ function TweetBox() {
           },
         };
         const FeedRes = Axios.post("http://localhost:5000/posts/upload", FeedData);
-        const FeedResImg = Axios.post(
-          "http://localhost:5000/posts/uploadImg",
-          formData,
-          {
-            headers: {
-              path: imagename,
-            },
-          }
-        );
+        if (file != null) {
+          const FeedResImg = Axios.post(
+            "http://localhost:5000/posts/uploadImg",
+            formData,
+            {
+              headers: {
+                path: imagename,
+              },
+            }
+          );
+        }
+        
     
         setTitle("");
-        setFile("");
+        setFile(null);
         imagename = "";
       };
 
@@ -105,6 +75,7 @@ function TweetBox() {
                       value={title}
                       onChange={(e) => setTitle(e.target.value)}
                       name="title"
+                      required
                     />
                 </div>
                 <div className="tweetbox_bottom"> 
