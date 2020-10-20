@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Home from "./components/pages/Home";
+import Profile from "./components/pages/Profile";
 import UserContext from "./context/UserContext";
 import Axios from "axios";
 import Login from "./components/auth/Login";
@@ -51,6 +52,7 @@ function App() {
       <UserContext.Provider value={{ userData, setUserData }}>
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route path="/profile" component={Profile} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
         </Switch>

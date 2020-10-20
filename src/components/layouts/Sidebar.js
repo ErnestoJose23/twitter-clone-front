@@ -11,13 +11,17 @@ import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import FeaturedPlayListOutlinedIcon from '@material-ui/icons/FeaturedPlayListOutlined';
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import BlurCircularOutlinedIcon from '@material-ui/icons/BlurCircularOutlined';
+import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import {Avatar, Button, IconButton} from "@material-ui/core"
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import UserContext from "../../context/UserContext";
+import {
+Link
+} from "react-router-dom";
 
-function Sidebar() {
+function Sidebar(home) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const { userData, setUserData } = useContext(UserContext);
     let history = useHistory();
@@ -41,13 +45,17 @@ function Sidebar() {
         <div className="sidebar">
             <TwitterIcon style={{ fontSize: 35}} className="sidebar_logo"/>
             <div className="sidebar_options">
-                <SidebarOption Icon={HomeIcon} text={"Inicio"} active/>
+                <Link to="/">
+                  {home.home ? ( <SidebarOption Icon={HomeIcon} text={"Inicio"} active/>) : ( <SidebarOption Icon={HomeOutlinedIcon} text={"Inicio"} />)}
+                </Link>
                 <SidebarOption Icon={SearchIcon} text={"Explorar"} />
                 <SidebarOption Icon={NotificationsNoneIcon} text={"Notificaciones"} />
                 <SidebarOption Icon={MailOutlineIcon} text={"Mensajes"} />
                 <SidebarOption Icon={BookmarkBorderIcon} text={"Guardados"} />
                 <SidebarOption Icon={FeaturedPlayListOutlinedIcon} text={"Listas"} />
-                <SidebarOption Icon={PersonOutlineOutlinedIcon} text={"Perfil"} />
+                <Link to="/profile">
+                  {home.profile ? (  <SidebarOption Icon={PersonOutlineOutlinedIcon} text={"Perfil"} active/>) : (  <SidebarOption Icon={PersonOutlineOutlinedIcon} text={"Perfil"} />)}
+                </Link>
                 <SidebarOption Icon={BlurCircularOutlinedIcon} text={"Más opciones"} />
                
             </div>

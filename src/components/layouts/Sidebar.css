@@ -75,3 +75,8 @@
 .sidebar_username {
   margin-left: 10px;
 }
+
+.sidebar_options > a {
+  color: black;
+  text-decoration: none;
+}
