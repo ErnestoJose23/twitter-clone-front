@@ -24,6 +24,7 @@ function TweetBox() {
         var imagename = "";
         if (file != null) {
           var imagename = Date.now();
+          console.log("aqui en imagen")
         }
         const displayName = userData.user;
         const user_id = userData.user_id;
@@ -80,11 +81,11 @@ function TweetBox() {
                 </div>
                 <div className="tweetbox_bottom"> 
                     <div className="tweetbox_options">
-                        <label htmlFor="file-upload" className="label-file">
                         <IconButton>
-                        <WallpaperIcon />
+                          <label htmlFor="file-upload" >
+                            <WallpaperIcon className="file-upload-button"/>
+                          </label>
                         </IconButton>
-                        </label>
                         <input
                           id="file-upload"
                           type="file"

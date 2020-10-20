@@ -15,6 +15,7 @@ function Post({user_id, timestamp, tweet, imagename}) {
     const [avatar, setAvatar] = useState();
     const [verified, setVerified] = useState(false);
     const [timesince, setTimesince] = useState();
+    const [img, setImg] = useState([]);
     useEffect(() => {
 
         const fetchPosts = async () => 
@@ -25,6 +26,16 @@ function Post({user_id, timestamp, tweet, imagename}) {
             setAvatar(response.data.avatar);
             setVerified(response.data.verified)
           });
+
+          const fetchImage = async () => 
+            await Axios.get(`http://localhost:5000/posts/getImg/${imagename}`).then((response) => {
+                console.log(response);
+                setImg(response.data);
+            });
+
+          if (imagename != "") {
+            fetchImage();
+          }
           setTimesince(timeDifference(Date.now(), timestamp));
           fetchPosts();
     }, [])
@@ -80,9 +91,13 @@ function Post({user_id, timestamp, tweet, imagename}) {
                         <p>{tweet}</p>
                     </div>
                 </div>
-                {imagename &&
-                    <img src={imagename} alt="" />
-                }
+                {img.image ? (
+                    <div className="post_image">
+                    <img src={`data:image/jpeg;base64,${img.image}`}  width="200px"/>
+                    </div>
+                ) : (
+                    <div></div>
+                )}
                 <div className="post_footer">
                     <IconButton>
                         <ChatBubbleOutlineIcon fontSize="small"/>
