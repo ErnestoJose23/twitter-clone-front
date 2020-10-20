@@ -1,6 +1,7 @@
 import React from 'react'
 import Sidebar from "../../components/layouts/Sidebar";
 import Widge from "../../components/layouts/Widge";
+import ProfileLayout from "../layouts/ProfileLayout";
 import "../../App.css"
 
 
@@ -12,6 +13,7 @@ function Profile() {
 
       <div className="app_body">
         <Sidebar home={home} profile={profile}/>
+        <ProfileLayout />
         <Widge />
       </div>
     </div>

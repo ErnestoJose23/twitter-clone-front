@@ -1,0 +1,43 @@
+.profile {
+  flex: 0.6;
+  border-right: 1px solid var(--twitter-background);
+  min-width: fit-content;
+  overflow-y: scroll;
+}
+
+.profile::-webkit-scrollbar {
+  display: none;
+}
+
+.profile_header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 100;
+  border: 1px solid var(--twitter-background);
+  padding: 5px 20px;
+  display: flex;
+}
+
+.profile_header > h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+.profile_cover {
+  background-repeat: no-repeat;
+  background-position: center;
+
+  background-size: cover;
+}
+.profile_usercard > img {
+  width: 600px;
+}
+
+.profile_avatar {
+  width: 125px !important;
+  height: 125px !important;
+  position: relative;
+  margin-top: -65px;
+  margin-left: 20px;
+  border: 2px solid black;
+}

@@ -39,6 +39,9 @@ function App() {
           displayName: userRes.data.displayName,
           avatar: userRes.data.avatar,
           user_id: userRes.data.id,
+          cover: userRes.data.cover,
+          description: userRes.data.description,
+          verified: userRes.data.verified
         });
       }
     };
