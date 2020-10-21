@@ -100,3 +100,11 @@
   color: rgba(29, 161, 242, 1);
   border-bottom: 2px solid rgba(29, 161, 242, 1);
 }
+
+.profile_follows {
+  color: grey;
+}
+
+.followers {
+  margin-left: 10px;
+}

@@ -102,10 +102,11 @@ function ProfileLayour() {
       await Axios.get("http://localhost:5000/posts/sync").then((response) => {
           console.log(response);
           setPosts(response.data);
+         
         });
 
       useEffect(() => {
-            fetchPosts();
+          fetchPosts();
       }, [])
     
 
@@ -161,6 +162,8 @@ function ProfileLayour() {
         </form>
     </div>
     );
+
+    
     return (
         <div className="profile">
             <div className="profile_header">
@@ -186,6 +189,10 @@ function ProfileLayour() {
                     <h3>{userData.displayName}</h3>
                     <span>@{userData.username}</span>
                     <p className="profile_description_span">{userData.description}</p>
+                    <div>
+                      <span><strong>{userData.followingCount}</strong> <span className="profile_follows">Siguiendo</span></span>
+                      <span className="followers"><strong>{userData.followersCount}</strong> <span className="profile_follows ">Seguidores</span></span>
+                    </div>
                 </div>
                 <div className="profile_options">
                   <ul>

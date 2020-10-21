@@ -43,7 +43,9 @@ function App() {
           description: userRes.data.description,
           verified: userRes.data.verified,
           followers: userRes.data.followers,
-          following: userRes.data.following
+          following: userRes.data.following,
+          followersCount: userRes.data.followersCount,
+          followingCount: userRes.data.followingCount
         });
       }
     };
