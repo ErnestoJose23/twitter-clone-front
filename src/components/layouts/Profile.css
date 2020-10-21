@@ -74,3 +74,29 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.profile_options > ul > li {
+  list-style: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 28px 10px 30px;
+  color: gray;
+}
+.profile_options > ul > li:hover {
+  color: rgba(29, 161, 242, 1);
+  background-color: rgb(29 161 242 / 10%);
+
+  cursor: pointer;
+}
+
+.profile_options > ul {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px;
+  border-bottom: 1px solid var(--twitter-background);
+}
+
+.profile_options .active {
+  color: rgba(29, 161, 242, 1);
+  border-bottom: 2px solid rgba(29, 161, 242, 1);
+}

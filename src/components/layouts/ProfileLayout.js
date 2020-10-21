@@ -160,6 +160,14 @@ function ProfileLayour() {
                     <span>@{userData.username}</span>
                     <pan>{userData.description}</pan>
                 </div>
+                <div className="profile_options">
+                  <ul>
+                    <li className="active">Tweets</li>
+                    <li>Tweets y respuestas</li>
+                    <li>Fotos y videos</li>
+                    <li>Me gusta</li>
+                  </ul>
+                </div>
             </div>
         </div>
     )
