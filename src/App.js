@@ -41,7 +41,9 @@ function App() {
           user_id: userRes.data.id,
           cover: userRes.data.cover,
           description: userRes.data.description,
-          verified: userRes.data.verified
+          verified: userRes.data.verified,
+          followers: userRes.data.followers,
+          following: userRes.data.following
         });
       }
     };

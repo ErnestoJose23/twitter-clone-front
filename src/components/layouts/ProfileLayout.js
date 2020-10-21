@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import UserContext from "../../context/UserContext";
 import './Profile.css'
 import ArrowBackOutlinedIcon from '@material-ui/icons/ArrowBackOutlined';
@@ -6,6 +6,7 @@ import { Avatar, Button, IconButton} from "@material-ui/core"
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Axios from "axios";
+import Post from "./Post"
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -31,6 +32,7 @@ function ProfileLayour() {
     const [avatar,setAvatar] = useState();
     const [description, setDescription] = useState();
     const [displayName, setDisplayName] = useState();
+    const [posts, setPosts] = useState([]);
 
     const handleOpen = () => {
         setOpen(true);
@@ -48,7 +50,10 @@ function ProfileLayour() {
         var coverImage = "";
         if (cover != null) {
           var coverImage = Date.now() + "cover";
-          console.log("aqui en imagen")
+        }
+        var avatarImage = "";
+        if (avatar != null) {
+          var avatarImage = Date.now() + "avatar";
         }
         const displayName = userData.user;
         const user_id = userData.user_id;
@@ -75,11 +80,33 @@ function ProfileLayour() {
             }
           );
         }
+        if (avatar != null) {
+          const FeedResImg = Axios.post(
+            "http://localhost:5000/users/uploadAvatar",
+            formData,
+            {
+              headers: {
+                path: avatarImage,
+                user_id: userData.user_id
+              },
+            }
+          );
+        }
         
         setDescription("");
         setAvatar("");
         setCover("");
       };
+
+      const fetchPosts = async () => 
+      await Axios.get("http://localhost:5000/posts/sync").then((response) => {
+          console.log(response);
+          setPosts(response.data);
+        });
+
+      useEffect(() => {
+            fetchPosts();
+      }, [])
     
 
     var sectionStyle = {
@@ -158,7 +185,7 @@ function ProfileLayour() {
                 <div className="profile_description">
                     <h3>{userData.displayName}</h3>
                     <span>@{userData.username}</span>
-                    <pan>{userData.description}</pan>
+                    <p className="profile_description_span">{userData.description}</p>
                 </div>
                 <div className="profile_options">
                   <ul>
@@ -168,6 +195,9 @@ function ProfileLayour() {
                     <li>Me gusta</li>
                   </ul>
                 </div>
+                { posts.map((post) => (
+                  <Post user_id={post.user_id}  tweet={post.tweet} timestamp={post.timestamp} imagename={post.imagename} />
+                ))}
             </div>
         </div>
     )
